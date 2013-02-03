@@ -13,10 +13,10 @@
     ],
     "autoload": {
         "psr-0": {
-            "iio\\localewrapper": ""
+            "iio\\localewrapper": "localewrapper"
         }
     },
-    "target-dir": "iio/localewrapper",
+    "target-dir": "iio",
     "require": {
         "php": ">=5.3.3",
         "ext-intl": "1.*",

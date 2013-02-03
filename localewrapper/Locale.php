@@ -231,11 +231,26 @@ class Locale
 
     public function lookup(array $langtag, $canonicalize = false, $default = '')
     {
+        /*
+            Här är jag inte riktigt klar. Vad betyder lookup egentligen?
+            antagligen så vill jag sätta vilka tags jag stödjer
+            och sedan skicka med det som kommer från http
+            och på detta sätt välja vilken locale som ska skapas
+
+            detta är alltså någonting som ska göras i construct...
+
+            eller åtminstonde länka till att använda den här metoden...
+         */
+
         return IntlLocale::lookup($langtag, $this->getLocale(), $canonicalize, $default);
     }
 }
 
 /*
+Gör klart de funktioner som kommer från intl
+
+Lägg till symfony-funktionerna...
+
 De funktioner som kräver symfony\locale ska kasta undantag om klassen inte
     finns tillgänglig
 
@@ -247,12 +262,14 @@ Skapa andra object som beror på Locale
     createMessageFormattor
     createIntlDateFormattor
     createResourceBundle
+ 
+Skriv några enkla test - 
+    men flytta ut phpunit.xml till roten
+    phpunit.xml.dist ??? (vad är skillnaden)
+    Kanske behöver jag inte Build dir? eller??
+    Tests i roten istället för i katalog??
 
-ok, det finns två olika locales här:
-
-    den vi vill läsa namnet på språket för
-    samt den vi vill ha namnet på språket översatt för..
- */
+ 
 
 header('Content-Type: text/plan; charset=utf8');
 
@@ -285,3 +302,4 @@ echo $l->lookup(array(
     'de',
     'de-De'
 ));
+*/
