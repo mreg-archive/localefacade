@@ -22,7 +22,7 @@ use Symfony\Component\Locale\Locale as SymfonyLocale;
  * @author  Hannes Forsgård <hannes.forsgard@gmail.com>
  * @package localefacade
  */
-class Locale
+class LocaleFacade
 {
     /**
      * @var string Current locale

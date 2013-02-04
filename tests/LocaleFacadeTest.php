@@ -10,10 +10,10 @@
 
 namespace iio\localefacade;
 
-class LocaleTest extends \PHPUnit_Framework_TestCase
+class LocaleFacadeTest extends \PHPUnit_Framework_TestCase
 {
     public function testFoo()
     {
-        $l = new Locale();
+        $l = new LocaleFacade();
     }
 }
