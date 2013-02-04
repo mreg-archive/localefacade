@@ -27,4 +27,4 @@ Then from the project root directory
     > phing
 
 This will run the tests and a number of other code analysis tools. Point your
-browser to *Build/index.html* to view the results.
+browser to *build/index.html* to view the results.

@@ -12,11 +12,8 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "iio\\localefacade": "localefacade"
-        }
+        "classmap": ["src"]
     },
-    "target-dir": "iio",
     "require": {
         "php": ">=5.3.3",
         "ext-intl": "1.*",

@@ -14,6 +14,6 @@ class LocaleTest extends \PHPUnit_Framework_TestCase
 {
     public function testFoo()
     {
-
+        $l = new Locale();
     }
 }
