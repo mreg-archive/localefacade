@@ -1,6 +1,6 @@
 # localefacade
 
-Description...
+OO wrapper to symfony/locale (and the Locale class of the Intl extension)
 
 
 ## Running the unit tests

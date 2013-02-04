@@ -14,7 +14,7 @@ use Locale as IntlLocale;
 use Symfony\Component\Locale\Locale as SymfonyLocale;
 
 /**
- * Wrapper to symfony/locale
+ * OO wrapper to symfony/locale (and the Locale class of the Intl extension)
  *
  * All methods behava as the symfony/locale or intl/Locale mehtods, extept that
  * $locale is never passed as a method parameter. Instead use setLocale.
