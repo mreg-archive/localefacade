@@ -2,5 +2,3 @@ Build/*
 vendor
 composer.phar
 composer.lock
-localewrapper.sublime-project
-localewrapper.sublime-workspace

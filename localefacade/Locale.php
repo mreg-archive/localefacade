@@ -1,14 +1,14 @@
 <?php
 /**
- * This file is part of the localewrapper package
+ * This file is part of the localefacade package
  *
- * Copyright (c) 2012 Hannes Forsgård
+ * Copyright (c) 2013 Hannes Forsgård
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace iio\localewrapper;
+namespace iio\localefacade;
 
 use Locale as IntlLocale;
 use Symfony\Component\Locale\Locale as SymfonyLocale;
@@ -20,7 +20,7 @@ use Symfony\Component\Locale\Locale as SymfonyLocale;
  * $locale is never passed as a method parameter. Instead use setLocale.
  *
  * @author  Hannes Forsgård <hannes.forsgard@gmail.com>
- * @package localewrapper;
+ * @package localefacade
  */
 class Locale
 {
@@ -264,10 +264,6 @@ Skapa andra object som beror på Locale
     createResourceBundle
  
 Skriv några enkla test - 
-    men flytta ut phpunit.xml till roten
-    phpunit.xml.dist ??? (vad är skillnaden)
-    Kanske behöver jag inte Build dir? eller??
-    Tests i roten istället för i katalog??
 
  
 

@@ -1,8 +1,8 @@
 {
-    "name": "iio/localewrapper",
+    "name": "iio/localefacade",
     "description": "",
     "keywords": [""],
-    "homepage": "https://github.com/iio/localewrapper",
+    "homepage": "https://github.com/iio/localefacade",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -13,7 +13,7 @@
     ],
     "autoload": {
         "psr-0": {
-            "iio\\localewrapper": "localewrapper"
+            "iio\\localefacade": "localefacade"
         }
     },
     "target-dir": "iio",
