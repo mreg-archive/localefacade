@@ -12,8 +12,16 @@ namespace iio\localefacade;
 
 class LocaleFacadeTest extends \PHPUnit_Framework_TestCase
 {
-    public function testFoo()
+    public function testSetDefault()
     {
         $l = new LocaleFacade();
+        $l->setDefault('se');
+        $this->assertEquals('se', $l->getLocale());
+    }
+
+    public function testGetDisplayName()
+    {
+    	$l = new LocaleFacade('de');
+    	$this->assertEquals('Deutsch', $l->getDisplayName());
     }
 }

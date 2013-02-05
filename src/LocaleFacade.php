@@ -263,18 +263,12 @@ Skapa andra object som beror på Locale
     createIntlDateFormattor
     createResourceBundle
  
-Skriv några enkla test - 
-
- 
 
 header('Content-Type: text/plan; charset=utf8');
 
 $l = new Locale();
 
 $l->setDefault('de-DE-1996-x-prv1-prv2');
-
-echo $l->getLocale() . "\n";
-echo $l->getDisplayName() . "\n\n";
 
 echo $l->getPrimaryLanguage() . "\n";
 echo $l->getDisplayLanguage() . "\n\n";
