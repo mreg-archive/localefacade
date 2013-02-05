@@ -5,22 +5,17 @@ Description...
 
 ## Running the unit tests
 
-To run the tests you must first install the dependencies.
+To run the tests you must first install the dependencies
 
     > curl -s https://getcomposer.org/installer | php
     > php composer.phar install
-
-And then from the *tests* directory
-
     > phpunit
+
 
 ### Using phing
 
-You may also run tests and code analysis using Phing. To install phing type
-
-    > sudo pear config-set preferred_state alpha
-    > sudo pear install --alldeps phing/phing
-    > sudo pear config-set preferred_state stable
+You may also run tests and code analysis using Phing.
+[Installation instructions.](http://www.phing.info/trac/wiki/Users/Installation)
 
 Then from the project root directory
 
