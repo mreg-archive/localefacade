@@ -240,6 +240,13 @@ class LocaleFacade
             detta är alltså någonting som ska göras i construct...
 
             eller åtminstonde länka till att använda den här metoden...
+
+            echo $l->lookup(array(
+                'de-DEVA',
+                'de-DE-1996',
+                'de',
+                'de-De'
+            ));
          */
 
         return IntlLocale::lookup($langtag, $this->getLocale(), $canonicalize, $default);
@@ -262,34 +269,4 @@ Skapa andra object som beror på Locale
     createMessageFormattor
     createIntlDateFormattor
     createResourceBundle
- 
-
-header('Content-Type: text/plan; charset=utf8');
-
-$l = new Locale();
-
-$l->setDefault('de-DE-1996-x-prv1-prv2');
-
-echo $l->getPrimaryLanguage() . "\n";
-echo $l->getDisplayLanguage() . "\n\n";
-
-echo $l->getRegion() . "\n";
-echo $l->getDisplayRegion() . "\n\n";
-
-echo $l->getScript() . "\n";
-echo $l->getDisplayScript() . "\n\n";
-
-print_r($l->getKeywords());
-
-print_r($l->getAllVariants());
-echo $l->getDisplayVariant() . "\n\n";
-
-print_r($l->parseLocale());
-
-echo $l->lookup(array(
-    'de-DEVA',
-    'de-DE-1996',
-    'de',
-    'de-De'
-));
 */
