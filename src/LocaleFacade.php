@@ -12,12 +12,17 @@ namespace iio\localefacade;
 
 use Locale as IntlLocale;
 use Symfony\Component\Locale\Locale as SymfonyLocale;
+use Collator;
+use NumberFormatter;
+use MessageFormatter;
+use IntlDateFormatter;
 
 /**
  * OO wrapper to symfony/locale (and the Locale class of the Intl extension)
  *
  * All methods behava as the symfony/locale or intl/Locale mehtods, extept that
  * $locale is never passed as a method parameter. Instead use setLocale.
+ * Additional methods for creating related Intl objects are prefixed 'create'.
  *
  * @author  Hannes Forsgård <hannes.forsgard@gmail.com>
  * @package localefacade
@@ -32,13 +37,45 @@ class LocaleFacade
     /**
      * Constructor
      *
-     * @param string $locale
+     * @param string $locale  The requested locale
+     * @param array  $langtag An array containing a list of language tags to compare to locale.
+     *     Maximum 100 items allowed. (If supplied the best match for $locale in $langtag
+     *     will be used.)
      */
-    public function __construct($locale = '')
+    public function __construct($locale = '', array $langtag = null)
     {
         if ($locale) {
             $this->setLocale($locale);
+            if ($langtag) {
+                $this->setLocale($this->lookup($langtag));
+            }
         }
+    }
+
+    /**
+     * Create a correctly ordered and delimited locale from subtags
+     *
+     * @param  array        $subtags an array containing a list of key-value
+     *     pairs, where the keys identify the particular locale ID subtags, and
+     *     the values are the associated subtag values.
+     * @return LocaleFacade
+     */
+    public static function composeLocale(array $subtags)
+    {
+        $locale = IntlLocale::composeLocale($subtags);
+        return new LocaleFacade($locale);
+    }
+
+    /**
+     * Tries to find out best available locale based on HTTP "Accept-Language" header
+     *
+     * @param  string $header The string containing the "Accept-Language" header according to format in RFC 2616
+     * @return LocaleFacade
+     */
+    public static function acceptFromHttp($header)
+    {
+        $locale = IntlLocale::acceptFromHttp($header);
+        return new LocaleFacade($locale);
     }
 
     /**
@@ -229,44 +266,119 @@ class LocaleFacade
         return IntlLocale::parseLocale($this->getLocale());
     }
 
+    /**
+     * Searches the language tag list for the best match to the language
+     *
+     * @param  array  $langtag      An array containing a list of language tags to compare to locale.
+     *     Maximum 100 items allowed.
+     * @param  array  $canonicalize If true, the arguments will be converted to canonical form before matching.
+     * @param  array  $default      The locale to use if no match is found.
+     * @return string The closest matching language tag or default value.
+     */
     public function lookup(array $langtag, $canonicalize = false, $default = '')
     {
-        /*
-            Här är jag inte riktigt klar. Vad betyder lookup egentligen?
-            antagligen så vill jag sätta vilka tags jag stödjer
-            och sedan skicka med det som kommer från http
-            och på detta sätt välja vilken locale som ska skapas
-
-            detta är alltså någonting som ska göras i construct...
-
-            eller åtminstonde länka till att använda den här metoden...
-
-            echo $l->lookup(array(
-                'de-DEVA',
-                'de-DE-1996',
-                'de',
-                'de-De'
-            ));
-         */
-
         return IntlLocale::lookup($langtag, $this->getLocale(), $canonicalize, $default);
     }
+
+    /**
+     * Checks if a language tag filter matches with locale
+     * 
+     * @param  string  $langtag      The language tag to check
+     * @param  boolean $canonicalize If true, the arguments will be converted to canonical form before matching
+     * @return boolean               TRUE if locale matches $langtag FALSE otherwise
+     */
+    public function filterMatches($langtag, $canonicalize = false)
+    {
+        return IntlLocale::filterMatches($langtag, $this->getLocale(), $canonicalize);
+    }
+
+    /**
+     * Returns the country names for locale
+     *
+     * @return array The country names with their codes as keys
+     */
+    public function getDisplayCountries()
+    {
+        return SymfonyLocale::getDisplayCountries($this->getLocale());
+    }
+
+    /**
+     * Returns the language names for locale
+     *
+     * @return array The language names with their codes as keys
+     */
+    public function getDisplayLanguages()
+    {
+        return SymfonyLocale::getDisplayLanguages($this->getLocale());
+    }
+
+    /**
+     * Returns the locale names for locale
+     *
+     * @return array The locale names with their codes as keys
+     */
+    public function getDisplayLocales()
+    {
+        return SymfonyLocale::getDisplayLocales($this->getLocale());
+    }
+
+    /**
+     * Create a new Collator object for locale
+     *
+     * @return Collator
+     */
+    public function createCollator()
+    {
+        return new Collator($this->getLocale());
+    }
+
+    /**
+     * Create a new NumberFormatter object for locale
+     *
+     * @param  int             $style   Style of the formatting, one of the format style constants.
+     * @param  string          $pattern Pattern string if the chosen style requires a pattern.
+     * @return NumberFormatter
+     */
+    public function createNumberFormatter($style, $pattern = null)
+    {
+        return new NumberFormatter($this->getLocale(), $style, $pattern);
+    }
+
+    /**
+     * Create a new MessageFormatter object for locale
+     *
+     * @param  string           $pattern The pattern string to stick arguments into.
+     * @return MessageFormatter
+     */
+    public function createMessageFormatter($pattern)
+    {
+        return new MessageFormatter($this->getLocale(), $pattern);
+    }
+
+    /**
+     * Create a new IntlDateFormatter object for locale 
+     * 
+     * @param  int               $datetype Date type to use (none, short, medium, long, full)
+     * @param  int               $timetype Time type to use (none, short, medium, long, full)
+     * @param  string            $timezone Time zone ID, default is system default.
+     * @param  int               $calendar Calendar to use for formatting or parsing; default is Gregorian.
+     * @param  string            $pattern  Optional pattern to use when formatting or parsing.
+     * @return IntlDateFormatter
+     */
+    public function createIntlDateFormatter(
+        $datetype,
+        $timetype,
+        $timezone = null,
+        $calendar = null,
+        $pattern = null
+    ) {
+        return new IntlDateFormatter(
+            $this->getLocale(),
+            $datetype,
+            $timetype,
+            $timezone,
+            $calendar,
+            $pattern
+        );
+    }
 }
-
-/*
-Gör klart de funktioner som kommer från intl
-
-Lägg till symfony-funktionerna...
-
-De funktioner som kräver symfony\locale ska kasta undantag om klassen inte
-    finns tillgänglig
-
-Constructor ska kasta undantag och ext_intl inte finns tillgänglig
-
-Skapa andra object som beror på Locale
-    lägg till createCollator för att skapa en collator med den här locale..
-    lägg till createNumberFormattor för att skapa detta...
-    createMessageFormattor
-    createIntlDateFormattor
-    createResourceBundle
-*/
