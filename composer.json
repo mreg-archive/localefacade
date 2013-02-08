@@ -1,7 +1,7 @@
 {
     "name": "iio/localefacade",
-    "description": "",
-    "keywords": [""],
+    "description": "OO wrapper to symfony/locale (and the Locale class of the Intl extension)",
+    "keywords": ["Locale", "symfony/locale", "intl"],
     "homepage": "https://github.com/iio/localefacade",
     "type": "library",
     "license": "MIT",
