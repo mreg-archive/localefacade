@@ -3,6 +3,31 @@
 OO wrapper to symfony/locale (and the Locale class of the Intl extension)
 
 
+## Usage
+
+    $l = new LocaleFacade('de');
+
+    // Prints 'Deutsch'
+    echo $l->getDisplayName();
+
+    // Prints 'Schweden'
+    echo $l->getDisplayCountries()['SE'];
+
+    $arr = array(
+        'ü',
+        'u',
+        'ß',
+        's'
+    );
+    $l->createCollator()->sort($arr);
+
+    // Prints 's, ß, u, ü'
+    print_r($arr);
+
+    // And all the other Locale methods...
+
+
+
 ## Running the unit tests
 
 To run the tests you must first install the dependencies
@@ -10,7 +35,6 @@ To run the tests you must first install the dependencies
     > curl -s https://getcomposer.org/installer | php
     > php composer.phar install
     > phpunit
-
 
 ### Using phing
 
