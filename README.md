@@ -1,4 +1,4 @@
-# localefacade
+# ledgr/localefacade
 
 
 OO wrapper to symfony/locale (and the Locale class of the Intl extension)
@@ -8,7 +8,7 @@ OO wrapper to symfony/locale (and the Locale class of the Intl extension)
 
 Installation using [composer](http://getcomposer.org/)
 ------------------------------------------------------
-Simply add `__VENDOR_NAME__/__SKELETON_NAME__` to your list of required libraries.
+Simply add `ledgr/localefacade` to your list of required libraries.
 
 
 Usage
