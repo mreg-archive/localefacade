@@ -2,13 +2,13 @@
 /**
  * This file is part of the localefacade package
  *
- * Copyright (c) 2013 Hannes Forsgård
+ * Copyright (c) 2013-14 Hannes Forsgård
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace iio\localefacade;
+namespace ledgr\localefacade;
 
 use Locale as IntlLocale;
 use Symfony\Component\Locale\Locale as SymfonyLocale;
@@ -24,8 +24,7 @@ use IntlDateFormatter;
  * $locale is never passed as a method parameter. Instead use setLocale.
  * Additional methods for creating related Intl objects are prefixed 'create'.
  *
- * @author  Hannes Forsgård <hannes.forsgard@gmail.com>
- * @package localefacade
+ * @author  Hannes Forsgård <hannes.forsgard@fripost.org>
  */
 class LocaleFacade
 {

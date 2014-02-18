@@ -1,18 +1,20 @@
 {
-    "name": "iio/localefacade",
+    "name": "ledgr/localefacade",
     "description": "OO wrapper to symfony/locale (and the Locale class of the Intl extension)",
     "keywords": ["Locale", "symfony locale", "intl"],
-    "homepage": "https://github.com/iio/localefacade",
+    "homepage": "https://github.com/ledgr/localefacade",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Hannes Forsgård",
-            "email": "hannes.forsgard@gmail.com"
+            "email": "hannes.forsgard@fripost.org"
         }
     ],
     "autoload": {
-        "classmap": ["src"]
+        "psr-4": {
+            "ledgr\\localefacade\\": "src/"
+        }
     },
     "require": {
         "php": ">=5.3.3",

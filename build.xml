@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="mreg" basedir="." default="buildAll">
+<project name="localefacade" basedir="." default="buildAll">
     <property name="APP_NAME" value="localefacade"/>
     <property name="APP_ROOT" value="${project.basedir}"/>
     <property name="SRC_DIR" value="${APP_ROOT}/src"/>
@@ -97,6 +97,16 @@
         <mkdir dir="${BUILD_DIR}"/>
         <mkdir dir="${BUILD_DIR}/phpcs"/>
         <mkdir dir="${BUILD_DIR}/pdepend"/>
+        <if>
+            <available file="${BUILD_DIR}/index.html"/>
+            <else>
+                <exec
+                    command="wget https://raw.github.com/hanneskod/pskeleton/0.2.0/index.html"
+                    dir="${BUILD_DIR}"
+                    passthru="true"
+                    />
+            </else>
+        </if>
     </target>
 
     <target name="update" depends="install">
