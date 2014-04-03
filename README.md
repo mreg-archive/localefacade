@@ -1,9 +1,8 @@
 # ledgr/localefacade [![Latest Stable Version](https://poser.pugx.org/ledgr/localefacade/v/stable.png)](https://packagist.org/packages/ledgr/localefacade) [![Build Status](https://travis-ci.org/ledgr/localefacade.png)](https://travis-ci.org/ledgr/localefacade) [![Dependency Status](https://gemnasium.com/ledgr/localefacade.png)](https://gemnasium.com/ledgr/localefacade)
 
 
-OO wrapper to symfony/locale (and the Locale class of the Intl extension)
-
-**License**: [MIT](/LICENSE)
+OO wrapper to [symfony/locale](https://github.com/symfony/Locale) (and the
+[Locale](http://www.php.net/manual/en/class.locale.php) class of the Intl extension)
 
 
 Installation using [composer](http://getcomposer.org/)

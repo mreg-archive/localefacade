@@ -1,12 +1,4 @@
 <?php
-/**
- * This file is part of the localefacade package
- *
- * Copyright (c) 2013-14 Hannes Forsgård
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 
 namespace ledgr\localefacade;
 

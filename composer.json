@@ -4,7 +4,7 @@
     "keywords": ["Locale", "symfony locale", "intl"],
     "homepage": "https://github.com/ledgr/localefacade",
     "type": "library",
-    "license": "MIT",
+    "license": "WTFPL",
     "authors": [
         {
             "name": "Hannes Forsgård",
