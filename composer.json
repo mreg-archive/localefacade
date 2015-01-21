@@ -1,7 +1,7 @@
 {
     "name": "ledgr/localefacade",
-    "description": "OO wrapper to symfony/locale (and the Locale class of the Intl extension)",
-    "keywords": ["Locale", "symfony locale", "intl"],
+    "description": "[Unmaintained] OO wrapper to symfony/locale",
+    "keywords": ["symfony locale"],
     "homepage": "https://github.com/ledgr/localefacade",
     "type": "library",
     "license": "WTFPL",
