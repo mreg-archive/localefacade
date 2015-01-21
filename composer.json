@@ -2,7 +2,7 @@
     "name": "ledgr/localefacade",
     "description": "[Deprecated] OO wrapper to symfony/locale",
     "keywords": ["symfony locale"],
-    "homepage": "https://github.com/ledgr/localefacade",
+    "homepage": "https://github.com/hanneskod/localefacade",
     "type": "library",
     "license": "WTFPL",
     "authors": [
