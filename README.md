@@ -1,7 +1,7 @@
 > **NOTE:** The symfony Locale component is deprecated since symfony 2.3, use the Intl component instead.
-> LocaleFacade will not be updated as it is not neccessary when using the Intl component.
+> LocaleFacade will not be updated as it is not necessary when using Intl.
 
-> See [the symfony documentation](http://symfony.com/doc/current/components/intl.html).
+> For more information see the Intl [documentation](http://symfony.com/doc/current/components/intl.html).
 
 LocaleFacade [deprecated]
 =========================
@@ -42,8 +42,8 @@ print_r($arr);
 // And all the other Locale methods...
 ```
 
-Run tests  using [phpunit](http://phpunit.de/)
-----------------------------------------------
+Testing
+-------
 To run the tests you must first install dependencies using composer.
 
     $ curl -sS https://getcomposer.org/installer | php
