@@ -1,6 +1,6 @@
 {
     "name": "ledgr/localefacade",
-    "description": "[Unmaintained] OO wrapper to symfony/locale",
+    "description": "[Deprecated] OO wrapper to symfony/locale",
     "keywords": ["symfony locale"],
     "homepage": "https://github.com/ledgr/localefacade",
     "type": "library",
